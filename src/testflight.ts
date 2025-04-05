@@ -107,7 +107,7 @@ export class Version {
     // Update the build number in the Xcode project file
     const configFilePath = projectFilePath + '/project.pbxproj'
     const configFile = fs.readFileSync(configFilePath, 'utf8');
-    const newConfigFile = configFile.replace(/CURRENT_PROJECT_VERSION = \d+;/, `CURRENT_PROJECT_VERSION = ${nextBuildNumber};`);
+    const newConfigFile = configFile.replace(/CURRENT_PROJECT_VERSION = \d+;/g, `CURRENT_PROJECT_VERSION = ${nextBuildNumber};`);
     fs.writeFileSync(configFilePath, newConfigFile, 'utf8');
     console.log(`Updated build number to ${nextBuildNumber} in ${configFilePath}`);
     return latestBuildId;
