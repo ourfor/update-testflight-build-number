@@ -1,0 +1,33 @@
+name: 'Get Last Build Number'
+description: 'Get the last build number for a given app ID from AppStore Connect'
+author: 'Itty Bitty Apps Pty Ltd'
+inputs:
+  app-id:
+    description: 'The App ID to get last build number for'
+    required: true
+  platform:
+    description: 'The platform to retrieve build number for. One of IOS, MAC, TVOS'
+    required: false
+    default: 'IOS'
+  project-path:
+    description: 'The path to the project file. This is used to determine the bundle ID of the app.'
+    required: false
+    default: ''
+  issuer-id:
+    description: 'The AppStore Connect API Key Issuer Identifier'
+    required: true
+  api-key-id:
+    description: 'The Key ID for AppStore Connect API'
+    required: true
+  api-private-key:
+    description: 'The PKCS8 format Private Key for AppStore Connect API'
+    required: true
+outputs:
+  build-number:
+    description: 'The build number of the last build'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+branding:
+  icon: arrow-down-circle
+  color: green

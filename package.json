@@ -1,0 +1,43 @@
+{
+  "name": "update-testflight-build-number",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GitHub Action for updating the build number of a TestFlight build",
+  "main": "dist/index.js",
+  "engines": {
+    "node": "20"
+  },
+  "scripts": {
+    "build": "tsc --outDir lib",
+    "format": "prettier --write src/",
+    "format-check": "prettier --check src/",
+    "lint": "eslint",
+    "package": "ncc build --license licenses.txt",
+    "all": "yarn format && yarn lint && yarn build && yarn package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ourfor/update-testflight-build-number.git"
+  },
+  "keywords": [
+    "actions",
+    "node",
+    "setup"
+  ],
+  "author": "ourfor",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "~1.11.0",
+    "@actions/io": "~1.1.0",
+    "appstoreconnect": "github:orj/appstoreconnect#release/v0.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "~20.17.0",
+    "@vercel/ncc": "~0.38.0",
+    "eslint": "~9.23.0",
+    "eslint-plugin-github": "~6.0.0",
+    "prettier": "~3.5.0",
+    "typescript": "~5.8.0"
+  },
+  "packageManager": "yarn@4.8.1"
+}
